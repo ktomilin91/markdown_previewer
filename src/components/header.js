@@ -1,6 +1,7 @@
 import React from "react";
 
 // App header, contains the Light/Dark mode switch
+// Receives darkMode prop (boolean) and switchMode() function
 export default props => {
     return (
         <header>

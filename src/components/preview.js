@@ -4,6 +4,7 @@ import {marked, Renderer, setOptions} from "marked";
 import Prism from "prismjs";
 
 // Preview field
+// Receives markdown string
 export default props => {
     // Parsing markdown and converting it to HTML
     // Highlighting code snippets
