@@ -1,26 +1,143 @@
-@import "~bootstrap/scss/bootstrap";
-$gradient: linear-gradient(180deg, $white, $gray-300);
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+html, body, #root, #container {
+  height: 100%;
+  width: 100%;
+}
 html {
   font-size: 10px;
 }
-body {
-  color: $gray-900;
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 100;
+body, #editor {
   margin: 0;
   padding: 0;
-  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+}
+#container {
   display: flex;
+  flex-direction: column;
+}
+header {
+  font-weight: 100;
+  font-size: 2rem;
+  padding: 1rem 1.5rem;
+  flex-grow: 0;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  background-image: $gradient;
-  user-select: none;
 }
-a {
-  color: inherit;
-  text-decoration: none;
+#logo {
+  color: #015fcc;
 }
-a:hover {
-  text-decoration: underline;
+#modeSwitch {
+  cursor: pointer;
+  transition: transform .3s;
+}
+#modeSwitch:hover {
+  transform: scale(1.1);
+}
+#content {
+  flex-grow: 1;
+  display: flex;
+  overflow: hidden;
+}
+#editor, #preview {
+  border: 1px solid rgb(118, 118, 118);
+  border-radius: 2px;
+  overflow-wrap: break-word;
+  padding: 1rem;
+}
+#editor {
+  width: 50%;
+  resize: none;
+  flex-shrink: 0;
+}
+#preview {
+  flex-grow: 1;
+  height: 100%;
+  box-sizing: border-box;
+  overflow-y: scroll;
+}
+#preview strong {
+  font-weight: 700;
+}
+#preview pre {
+  padding: 1rem;
+  overflow-x: scroll;
+}
+#preview blockquote {
+  padding: .5rem 1.5rem;
+  border-left: 3px solid #015fcc;
+}
+#preview img {
+  display: block;
+  max-width: 95%;
+  margin: 1rem auto;
+}
+#preview table {
+    border-collapse: collapse;
+}
+#preview th, #preview td {
+  padding: .5rem 1.5rem;
+}
+
+.darkMode {
+  background-color: #0c0a14;
+  color: #e1dfeb;
+}
+.darkMode a {
+  color: #015fcc;
+}
+.darkMode #editor {
+  background-color: #1a162b;
+  color: #e1dfeb;
+}
+.darkMode pre, .darkMode code, .darkMode blockquote {
+  background-color: #1a162b;
+}
+.darkMode th, .darkMode td {
+  border: 1px solid #514e61;
+}
+.darkMode tr:nth-child(odd) td {
+  background-color: #1a162b;
+}
+.darkMode ::-webkit-scrollbar {
+  width: auto;
+}
+.darkMode ::-webkit-scrollbar-track {
+  background-color: #2b2447;
+}
+.darkMode ::-webkit-scrollbar-thumb {
+  background: #514e61;
+  width: 95%;
+}
+.lightMode, .lightMode #editor {
+  background-color: #fff;
+  color: #232224;
+}
+.lightMode #preview {
+  background-color: #f0f0f0;
+}
+.lightMode pre, .lightMode code, .lightMode blockquote {
+  background-color: #fff;
+}
+.lightMode th, .lightMode td {
+  background-color: #fff;
+  border: 1px solid lightgray;
+}
+.lightMode tr:nth-child(odd) td {
+  background-color: #f0f0f0;
+}
+
+@media (max-width: 799px) {
+  #content {
+    display: block;
+    overflow-y: scroll;
+  }
+  #editor, #preview {
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+  }
 }
